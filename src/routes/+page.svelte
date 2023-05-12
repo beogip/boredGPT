@@ -3,7 +3,7 @@
 
 	import ChatMessage from '$lib/components/ChatMessage.svelte'
 	import ExamplePrompt from '$lib/components/ExamplePrompt.svelte'
-	import { SSE } from 'sse.js'
+	//import { SSE } from 'sse.js'
 	import { query } from '$lib/stores'
 
 	let answer = ''
@@ -17,51 +17,90 @@
 			messagesWindow.scroll({ top: messagesWindow.scrollHeight, behavior: "smooth"})
 		}, 100)
 	}
-
+	async function fetchAudio(word: any) {
+		const requestOptions = {
+			method: 'POST',
+			headers: {
+			'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ messages: word })
+		};
+		let url = '/api/chat';
+		// fetch() returns a promise that
+		// resolves once headers have been received
+		return fetch(url, requestOptions)
+			.then(res => {
+			if (!res.ok)
+				throw new Error(`${res.status} = ${res.statusText}`);
+			// response.body is a readable stream.
+			// Calling getReader() gives us exclusive access to
+			// the stream's content
+			/*var reader = res.body?.getReader();
+			if(!reader) throw new Error(`${res.status} = ${res.statusText}`);
+			// read() returns a promise that resolves
+			// when a value has been received
+			return reader
+				.read()*/
+				return res.json()
+			})
+	}
 	const handleSubmit = async () => {
-		loading = true
+		
+
+		
+		// loading = true
 
 		if (error) {
 			error = false
 		} else {
 			chatMessages = [...chatMessages, { role: 'user', content: $query}]
 		}
-
-		const eventSource = new SSE('/api/chat', {
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			payload: JSON.stringify({ messages: chatMessages })
-		})
-
 		$query = ''
+		const response = await fetchAudio(chatMessages)
+		
+		if(!response.answer) return 
+		console.log(response.audio)
+		const audio = new Audio();
+		audio.src = response.audio;
+		audio.play();
+		
+		// const eventSource = new SSE('/api/chat', {
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	payload: JSON.stringify({ messages: chatMessages })
+		// })
 
-		eventSource.addEventListener('error', handleError)
+		// $query = ''
 
-		eventSource.addEventListener('message', (e)=> {
-			scrollToBottom()
-			try {
-				if ( e.data === '[DONE]' ) {
-					loading = false
-					chatMessages = [...chatMessages, { role: 'assistant', content: answer }]
-					answer = ''
-					return
-				}
+		// eventSource.addEventListener('error', handleError)
 
-				const completionResponse = JSON.parse(e.data)
-				const [{ delta }] = completionResponse.choices
+		// eventSource.addEventListener('message', (e)=> {
+		// 	scrollToBottom()
+		// 	try {
+		// 		console.log(e)
+		// 		loading = false
+		// 		answer = e.data
+		// 		/*if ( e.data === '[DONE]' ) {
+		// 			loading = false
+		// 			chatMessages = [...chatMessages, { role: 'assistant', content: answer }]
+		// 			answer = ''
+		// 			return
+		// 		}*/
+		// 		//const completionResponse = JSON.parse(e.data)
+		// 		//const [{ delta }] = completionResponse.choices
+				
+		// 		/*if (delta.content) {
+		// 			answer = (answer ?? '') + delta.content
+		// 		}*/
 
-				if (delta.content) {
-					answer = (answer ?? '') + delta.content
-				}
+		// 	} catch (err) {
+		// 		handleError(err)
+		// 	}
+		// })
 
-			} catch (err) {
-				handleError(err)
-			}
-		})
-
-		eventSource.stream()
-		scrollToBottom()
+		// eventSource.stream()
+		// scrollToBottom()
 	}
 
 	function handleError<T>(err: T) {
