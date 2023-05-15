@@ -207,8 +207,10 @@ export const POST: RequestHandler = async ({ request }) => {
 			throw new Error('elevenResponse not ok: ', err)
 		}
 		const audioBlob = await elevenResponse.blob()
-
-		answerObj.audio = `data:audio/mpeg;base64,${await audioBlob.text()}`
+		answerObj.audio = `data:audio/mpeg;base64,${Buffer.from(await audioBlob.arrayBuffer()).toString(
+			'base64'
+		)}`
+		//console.log(answerObj.audio)
 		return new Response(JSON.stringify(answerObj), {
 			headers: { 'Content-Type': 'application/json' }
 		})

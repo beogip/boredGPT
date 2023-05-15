@@ -59,9 +59,9 @@
 		const response = await fetchAudio(chatMessages)
 		
 		if(!response.answer) return 
-		console.log(response.audio)
 		const audio = new Audio();
 		audio.src = response.audio;
+		
 		audio.play();
 		
 		// const eventSource = new SSE('/api/chat', {
