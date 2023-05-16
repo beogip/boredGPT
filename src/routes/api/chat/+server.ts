@@ -73,7 +73,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		`
 		const assistant = `[
 			{
-			title: "Title article one",
+			title: "10 great examples of responsive websites",
 			id: "10-great-examples-of-responsive-websites",
 			text: 
 			"## ***We work smart and hard while concentrating on the work effort that actually makes an impact.***
@@ -111,7 +111,45 @@ export const POST: RequestHandler = async ({ request }) => {
 			It’s not submissive, not deferential—in fact it’s kind of the opposite. In our culture, being collaborative means providing leadership from everywhere. We’re all interested in getting better, and everyone takes responsibility for that. If everyone’s collaborative in that sense, the responsibility for team performance is shared. Collaborative people know that success is limited by the worst performers, so they are either going to elevate them or have a serious conversation."
 			},
 			{
-			title: "title article two",
+				title: "why we love webflow and you should too",
+				id: "why-we-love-webflow-and-you-should-too",
+				text: 
+				"## ***We work smart and hard while concentrating on the work effort that actually makes an impact.***
+	
+				We aim to shake the agency world up, think differently about how we work in the creative & development industry, and build a fully-remote culture that empowers people to push boundaries.
+				
+				We are a new breed of agency with roots in no-code, redefining how work gets done and stripping the bullshit to create digital experiences faster and with greater efficiency at the highest quality, innovation, and standards. 
+				
+				## W**ork on what moves the needle.**
+				
+				At our core, as a no-code agency, we use technology to streamline production processes and allow our best human talent to focus on activities that bring the most value to our clients. This is the foundation of our thinking for everything we do. 
+				
+				Our human talent focuses on what really matters for our clients and partners: maximum value and growth. This means that any activity or deliverable that can be omitted must be omitted.
+				
+				This doesn’t mean that we work fast and dirty; it means that everything we do has a purpose towards maximizing value and that work for the sake of work (aka bullshit) is unacceptable.
+				
+				## T**hinking over executing.**
+				
+				We don’t automate thinking; we automate processes. Thinking is our most valuable trait. We don’t have molds that perfectly fit every project and client. We hire smart people that thrive in ambiguity and can deescalate the hardest of situations into a simple path forward. 
+				
+				Our processes are playbooks for guidance, not checklists to follow. And when we can, and makes sense, we automate them to allow our human talent to focus on the things that require human intelligence and creativity.
+				
+				## Great **Communication.**
+				
+				Companies don’t have communication problems; they have miscommunication problems. And as a remote team working remotely with clients on a wide range of timezones and cultural backgrounds, those problems scale really quickly. 
+				
+				We understand that clear, precise, and timely communication is key to being successful at what we do, and we like to be successful. We keep a positive, proactive, and problem-solving mindset, that, combined with our technical knowledge, allows us to de-escalate difficult situations (with teams or clients) and explore multiple solutions without running like headless chickens.
+				
+				## Hardworking.
+				
+				It does not mean long hours, although sometimes our gaming spirit pushes us in that direction to ship really challenging projects. But when we are working, we're disciplined, professional, and focused. We are also highly competitive, determined, resourceful, resilient, and gritty. We take this job as an opportunity to do the best work of our life.
+				
+				## Collaborative People.
+				
+				It’s not submissive, not deferential—in fact it’s kind of the opposite. In our culture, being collaborative means providing leadership from everywhere. We’re all interested in getting better, and everyone takes responsibility for that. If everyone’s collaborative in that sense, the responsibility for team performance is shared. Collaborative people know that success is limited by the worst performers, so they are either going to elevate them or have a serious conversation."
+				},
+			{
+			title: "the history of web design",
 			slug: "the-history-of-web-design", 
 			text:
 			"# Rules of thumb, and general philosophy
@@ -141,7 +179,71 @@ export const POST: RequestHandler = async ({ request }) => {
 			### If we are blocked, we ask and meanwhile we keep going
 			
 			When we are stuck with something we need help, we ask on the respective team channel (#design #webflow #development) and keep going with something else. Never expect or require someone to get back to you immediately unless it’s a true emergency."
-			}
+			},
+			{
+				title: "7 things about web design your boss wants to know",
+				slug: "7-things-about-web-design-your-boss-wants-to-know", 
+				text:
+				"# Rules of thumb, and general philosophy
+			
+				These aren’t requirements, but they serve as shared practices to draw upon when we do the one thing that affects everything else we do: communicate.
+				
+				### **We use Calls as the last resort, not the first option.**
+				
+				We only do calls when it’s absolutely inevitable. Five people in a call for an hour isn't a one hour call, it's a five hour call. Be mindful of the tradeoffs (such as having less time to get things done.)
+				
+				### We use calls for collaboration, not for presentation.
+				
+				Calls are for the exchange of ideas, asking/answering questions, and working on solving a problem together. Anything that is for transferring information should not be a call, for those cases, we use slack or record a video.
+				
+				### We are not spectators (unless we are asked to be)
+				
+				We expect everyone to participate in calls, bringing up questions, proposing ideas, etc. If you don’t have anything to contribute, then you should not be in that meeting. Being distracted, chatting on slack, or plain “zombie mode” is disrespectful and not acceptable.
+				
+				### We spread knowledge for everyone
+				
+				Every call MUST have a summary/meeting notes. Calls only help who’s in the call, writing helps everyone. This includes people who couldn't make it, or future employees who join years from now. Meeting notes also help participants to be aligned on what was discussed and agreed.
+				
+				### We talk publicly, so everyone can benefit from
+				
+				We value the common knowledge that comes from talking on public channels. We don’t use private channels (unless it is a personal matter), we actually hate private chats that if we receive one we move to the right channel.
+				
+				### If we are blocked, we ask and meanwhile we keep going
+				
+				When we are stuck with something we need help, we ask on the respective team channel (#design #webflow #development) and keep going with something else. Never expect or require someone to get back to you immediately unless it’s a true emergency."
+				},
+				{
+					title: "the worst advice weve ever heard about web design",
+					slug: "the-worst-advice-weve-ever-heard-about-web-design", 
+					text:
+					"# Rules of thumb, and general philosophy
+				
+					These aren’t requirements, but they serve as shared practices to draw upon when we do the one thing that affects everything else we do: communicate.
+					
+					### **We use Calls as the last resort, not the first option.**
+					
+					We only do calls when it’s absolutely inevitable. Five people in a call for an hour isn't a one hour call, it's a five hour call. Be mindful of the tradeoffs (such as having less time to get things done.)
+					
+					### We use calls for collaboration, not for presentation.
+					
+					Calls are for the exchange of ideas, asking/answering questions, and working on solving a problem together. Anything that is for transferring information should not be a call, for those cases, we use slack or record a video.
+					
+					### We are not spectators (unless we are asked to be)
+					
+					We expect everyone to participate in calls, bringing up questions, proposing ideas, etc. If you don’t have anything to contribute, then you should not be in that meeting. Being distracted, chatting on slack, or plain “zombie mode” is disrespectful and not acceptable.
+					
+					### We spread knowledge for everyone
+					
+					Every call MUST have a summary/meeting notes. Calls only help who’s in the call, writing helps everyone. This includes people who couldn't make it, or future employees who join years from now. Meeting notes also help participants to be aligned on what was discussed and agreed.
+					
+					### We talk publicly, so everyone can benefit from
+					
+					We value the common knowledge that comes from talking on public channels. We don’t use private channels (unless it is a personal matter), we actually hate private chats that if we receive one we move to the right channel.
+					
+					### If we are blocked, we ask and meanwhile we keep going
+					
+					When we are stuck with something we need help, we ask on the respective team channel (#design #webflow #development) and keep going with something else. Never expect or require someone to get back to you immediately unless it’s a true emergency."
+					}
 		]
 		`
 
