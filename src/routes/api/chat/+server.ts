@@ -74,7 +74,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const assistant = `[
 			{
 			title: "Title article one",
-			id: 1
+			id: "10-great-examples-of-responsive-websites",
 			text: 
 			"## ***We work smart and hard while concentrating on the work effort that actually makes an impact.***
 
@@ -112,7 +112,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			},
 			{
 			title: "title article two",
-			id: 2
+			slug: "the-history-of-web-design", 
 			text:
 			"# Rules of thumb, and general philosophy
 		
@@ -144,10 +144,11 @@ export const POST: RequestHandler = async ({ request }) => {
 			}
 		]
 		`
+
 		const outputFormat = `Return the answer as a JSON object like this: 
 		'{
 			"answer": {your answer}
-			"article": {Article's id}
+			"article": {Article's slug}
 		}'`
 		tokenCount += getTokens(prompt)
 		if (tokenCount >= 4000) {
