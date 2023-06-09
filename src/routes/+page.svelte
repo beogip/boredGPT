@@ -25,7 +25,7 @@
 			},
 			body: JSON.stringify({ messages: word })
 		};
-		let url = '/api/chat';
+		let url = '/api/chat2.0';
 		// fetch() returns a promise that
 		// resolves once headers have been received
 		return fetch(url, requestOptions)
